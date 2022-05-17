@@ -19,7 +19,7 @@ namespace SnakeAndLadderGame
 
         public void PlayOptions()
         {
-            while (playerPosition <= 100)
+            while (playerPosition < 100)
             {
                 switch (random.Next(0, 3))
                 {
@@ -38,17 +38,21 @@ namespace SnakeAndLadderGame
                 if (playerPosition < 0)
                 {
                     playerPosition = 0;
-                    //Console.WriteLine("Player Position is " + playerPostion);
+                    Console.WriteLine("Player Position is " + playerPosition);
                 }
-                Console.WriteLine("Player Position is "+playerPosition);
-                if (playerPosition == 100)
+                else if (playerPosition > 100)
                 {
-                    break;
+                    playerPosition -= diceNo;
+                    Console.WriteLine("Player Position is " + playerPosition);
                 }
-                    /*else
-                    {
-                        Console.WriteLine("Player Position is " + playerPostion);
-                    }*/
+                else if(playerPosition == 100)
+                {
+                    Console.WriteLine("Player reached the 100th position and Won the game");
+                }
+                else
+                {
+                    Console.WriteLine("Player Position is " + playerPosition);
+                }
                 }
         }
     }
