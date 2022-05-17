@@ -8,6 +8,12 @@ namespace SnakeAndLadderGame
 {
     internal class SnakeAndLadder
     {
-        int playerPostion,playerStartPosition = 0;
+        int diceNo,playerPostion=0,playerStartPosition = 0;
+        Random random = new Random();
+        public int DiceRoll()
+        {
+            diceNo = random.Next(1,7);
+            return diceNo;
+        }
     }
 }
