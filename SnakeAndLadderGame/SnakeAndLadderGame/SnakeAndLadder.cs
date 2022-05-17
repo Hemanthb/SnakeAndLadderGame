@@ -8,7 +8,7 @@ namespace SnakeAndLadderGame
 {
     internal class SnakeAndLadder
     {
-        int diceNo,playerPosition=0,playerStartPosition = 0;
+        int diceNo,playerPosition=0,noOfTimesDiceRolled = 0;
         const int noPlay = 0, ladder = 1, snake = 2;
         Random random = new Random();
         public int DiceRoll()
@@ -43,7 +43,22 @@ namespace SnakeAndLadderGame
                 else if (playerPosition > 100)
                 {
                     playerPosition -= diceNo;
-                    Console.WriteLine("Player Position is " + playerPosition);
+
+                    while (playerPosition < 100)
+                    {
+                        Console.WriteLine("Player Position is " + playerPosition);
+                        if (DiceRoll() == (100 - playerPosition))
+                        {
+                            playerPosition = 100;
+                            Console.WriteLine("Player reached the 100th position and Won the game");
+                            
+                        }
+                        else
+                        {
+                            continue;
+                        }
+                    }
+                    
                 }
                 else if(playerPosition == 100)
                 {
