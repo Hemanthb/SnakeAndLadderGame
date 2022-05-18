@@ -28,9 +28,11 @@ namespace SnakeAndLadderGame
                         break;
                     case ladder:
                         playerPosition += DiceRoll();
+                        noOfTimesDiceRolled++;
                         break;
                     case snake:
                         playerPosition -= DiceRoll();
+                        noOfTimesDiceRolled++;
                         break;
                     default:
                         break;
@@ -38,7 +40,7 @@ namespace SnakeAndLadderGame
                 if (playerPosition < 0)
                 {
                     playerPosition = 0;
-                    Console.WriteLine("Player Position is " + playerPosition);
+                    Console.WriteLine("Player Position is " + playerPosition +" || Times dice rolled is "+noOfTimesDiceRolled);
                 }
                 else if (playerPosition > 100)
                 {
@@ -46,15 +48,17 @@ namespace SnakeAndLadderGame
 
                     while (playerPosition < 100)
                     {
-                        Console.WriteLine("Player Position is " + playerPosition);
+                        Console.WriteLine("Player Position is " + playerPosition + " || Times dice rolled is " + noOfTimesDiceRolled);
                         if (DiceRoll() == (100 - playerPosition))
                         {
+                            noOfTimesDiceRolled++;
                             playerPosition = 100;
-                            Console.WriteLine("Player reached the 100th position and Won the game");
+                            Console.WriteLine("Player reached the 100th position and Won the game in " + noOfTimesDiceRolled + " dice rolls!");
                             
                         }
                         else
                         {
+                            noOfTimesDiceRolled++;
                             continue;
                         }
                     }
@@ -62,11 +66,11 @@ namespace SnakeAndLadderGame
                 }
                 else if(playerPosition == 100)
                 {
-                    Console.WriteLine("Player reached the 100th position and Won the game");
+                    Console.WriteLine("Player reached the 100th position and Won the game in "+noOfTimesDiceRolled+" dice rolls!");
                 }
                 else
                 {
-                    Console.WriteLine("Player Position is " + playerPosition);
+                    Console.WriteLine("Player Position is " + playerPosition + " || Times dice rolled is " + noOfTimesDiceRolled);
                 }
                 }
         }
